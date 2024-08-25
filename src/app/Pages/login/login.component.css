@@ -1,0 +1,24 @@
+
+.container {
+    
+    padding: 0;
+    height: 100vh;
+    background: url('https://img.freepik.com/foto-gratis/arco-iris-fotorrealista-paisaje-natural-campo_23-2151597635.jpg') no-repeat center center fixed; 
+    background-size: cover;  
+    display: flex; 
+    align-items:center; 
+    justify-content: center;
+    width: 100%;
+    
+    
+  }
+  
+  /* Estilo para el contenedor del formulario de login */
+  .login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con 80% de opacidad */
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 100px auto; /* Centrar el contenedor vertical y horizontalmente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agregar sombra para destacar el formulario */
+  }

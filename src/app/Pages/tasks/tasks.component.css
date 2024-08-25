@@ -1,0 +1,13 @@
+.form-control{
+    margin-bottom: 1vw;
+}
+
+table button{
+    margin-right: 5%;
+}
+
+.LogOut{
+    position: absolute;
+    bottom: 5vh;
+    
+}

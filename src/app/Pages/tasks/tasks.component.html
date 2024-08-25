@@ -1,0 +1,75 @@
+<div class="container-fluid" style="height: 100%;" >
+    <div class="row col-md-12" style="height: 100%; ">
+        
+        <div class="col-md-3 " style="padding-left: 15px; border-right: black solid 1px; height: 100vh; background-color: #c2d9fe;"  >
+            <div class="col-md-9 mx-auto mt-5" style="border: black solid 1px; height: 15vw;background-color: white;"></div>
+            <div class="col-md-11 mt-5">
+                <p>Usuario : {{User.userName}} </p>
+                <p>Nombre : {{User.fullName}} </p>
+                <p>Correo: {{User.email}} </p>
+            </div>
+            <div class="row LogOut">
+                <button class="btn btn-default mx-auto" (click)="LogOut()">Cerrar sesión</button>
+            </div>
+        </div>
+
+        <div class="col-md-8" >
+            <div class="row col-md-11 mx-auto pt-3" style="height: 5vw;">
+                <button class=" col-md-2 btn btn-primary" style="height: 2.5vw;" data-bs-target="#exampleModal" data-bs-toggle="modal">Agregar</button>
+            </div>
+            <div class="row col-md-11 mx-auto">
+                <table class="table "  >
+                <thead>
+                        <tr>
+                        <th scope="col">Nombre tarea: </th> 
+                        <th scope="col">Descripción: </th> 
+                        <th scope="col" >Completado: </th> 
+                        <th scope="col">Usuario: </th> 
+                        <th scope="col">Acción: </th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr scope="row" *ngFor="let item of ListTask ">
+                            <td> {{item.name}}</td>
+                            <td> {{item.description}}</td>
+                            <td> {{item.completed== true? "Si":"No"}}</td>
+                            <td>{{item.UserName}}</td>
+                            <td class="col-md-3">
+                                <button class=" btn btn-success " *ngIf="!item.completed" (click)="updateTask(item)">Check</button>
+                                <button class="btn btn-danger  " (click)="DeleteTask(item)">Del</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="padding: 2vw;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar tarea</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="FormularioTask" (ngSubmit)="validar_Formulario_Add()">
+                <div class="form-group">
+                    <label class="label" for="">Nombre</label>
+                    <input type="text" name="Nombre" class="form-control"  formControlName="name">
+                </div>
+                <div class="form-group mb-2" >
+                    <label class="label" for="">Descripcion</label>
+                    <input type="text" name="Nombre" class="form-control" formControlName="description">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary col-md-2" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary col-md-3" (click)="validar_Formulario_Add()" >Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
